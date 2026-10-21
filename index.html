@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amirhossein Roknilamouki | PhD Candidate @ OSU</title>
-    <meta name="description" content="Academic website of Amirhossein Roknilamouki, PhD Candidate in ECE at The Ohio State University. Researching Safe RL, LLM Alignment, and Trustworthy AI.">
+    <meta name="description" content="Academic website of Amirhossein Roknilamouki, PhD Candidate in ECE at The Ohio State University. Research on tool-augmented LLM agents, safe reinforcement learning, offline-to-online exploration, and federated LLM alignment.">
     
     <!-- Fonts: Inter for clean academic look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,7 +87,7 @@
             border: 4px solid white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin-bottom: 1.5rem;
-            background-color: #ddd; /* Placeholder color */
+            background-color: #ddd;
         }
 
         .bio-short {
@@ -219,6 +219,22 @@
         .skill-cat { font-weight: 600; margin-bottom: 0.25rem; display: block; color: #222; }
         .skill-list { font-size: 0.9rem; color: var(--text-light); }
 
+        /* Content updates and accessible navigation */
+        main { min-width: 0; width: 100%; }
+        .intro-text p + p { margin-top: 1rem; }
+        .cv-link { display: inline-block; margin-top: 0.9rem; font-weight: 600; }
+        .section-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.8rem; margin-top: 1.5rem; font-size: 0.85rem; }
+        .pub-links { margin-top: 0.25rem; font-size: 0.9rem; }
+        .pub-links a { font-weight: 600; }
+        .news-list, .service-list, .honors-list { padding-left: 1.2rem; font-size: 0.95rem; }
+        .news-list li, .service-list li, .honors-list li { margin-bottom: 0.55rem; }
+        .timeline-item { gap: 1rem; }
+        .timeline-left { min-width: 0; }
+        .skip-link { position: absolute; left: 1rem; top: -5rem; background: #fff; padding: 0.6rem 1rem; z-index: 10; }
+        .skip-link:focus { top: 1rem; }
+        a:focus-visible { outline: 2px solid var(--osu-scarlet); outline-offset: 4px; }
+        html { scroll-padding-top: 1rem; }
+
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             body { flex-direction: column; }
@@ -238,167 +254,196 @@
 </head>
 <body>
 
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- LEFT SIDEBAR: PROFILE & CONTACT -->
     <aside>
-        <!-- 
-             Instructions for Image:
-             1. Save your photo as "profile.jpg" in the same folder as this file.
-             2. Change the src below to "profile.jpg" 
-        -->
+
        <img src="profile.jpg" alt="Amirhossein Roknilamouki" class="profile-img">
         
         <h1>Amirhossein Roknilamouki</h1>
         <p class="bio-short">PhD Candidate in ECE<br>The Ohio State University</p>
 
-        <div class="social-links">
-            <a href="mailto:roknilamouki.1@osu.edu" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH8HC4we7qguiocgpztPF-S2ojHqG0XsEWfc7AltTzFGImAxCWXBH2ZeqefnlmXjCLh0BNBLN2OGC02bIw2klw&user=uuvNJ9YAAAAJ" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/ARokni" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/amirhossein-roknilamouki-3a295a221" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <div class="social-links" aria-label="Contact and profiles">
+            <a href="mailto:roknilamouki.1@osu.edu" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?user=uuvNJ9YAAAAJ" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/ARokni" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/amirhossein-roknilamouki-3a295a221" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
         </div>
 
         <div class="contact-info">
             <div><i class="fas fa-map-marker-alt"></i> Columbus, OH, USA</div>
             <div><i class="fas fa-university"></i> ECE Dept, OSU</div>
         </div>
+        <a class="cv-link" href="cv.pdf" target="_blank" rel="noopener noreferrer">View CV (PDF)</a>
+        <nav class="section-nav" aria-label="Page sections">
+            <a href="#about">About</a><a href="#publications">Publications</a>
+            <a href="#experience">Experience</a><a href="#education">Education</a>
+            <a href="#skills">Skills</a><a href="#service">Service</a>
+        </nav>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main>
-        
-        <!-- ABOUT -->
-        <section id="about">
+    <main id="main-content">
+        <section id="about" aria-label="About me">
             <div class="intro-text">
-                <p>
-                    I am a Ph.D. candidate in Electrical and Computer Engineering at <a href="https://www.osu.edu/" target="_blank">The Ohio State University</a>, where I am advised by <strong>Prof. Ness B. Shroff</strong>. My research advances <strong>safe</strong>, <strong>trustworthy</strong>, and <strong>scalable AI</strong>. Prior to joining OSU, I received my <strong>B.Sc.</strong> and <strong>M.Sc.</strong> degrees in Electrical and Computer Engineering from the <strong>University of Tehran</strong>. My current research focuses on <strong>provably safe RL theory</strong>, distributed systems for multi-objective <strong>LLM alignment (RLHF)</strong>, and deep RL methods for the Pre-Training and Post-Training of intelligent agents. You can download my <a href="cv.pdf" target="_blank">CV here</a>.
-                </p>
+                <p>I am a Ph.D. candidate in Electrical and Computer Engineering at <a href="https://www.osu.edu/" target="_blank" rel="noopener noreferrer">The Ohio State University</a>, advised by <strong>Prof. Ness B. Shroff</strong>. My research focuses on <strong>tool-augmented language-model agents</strong>, <strong>safe reinforcement learning</strong>, and <strong>LLM alignment</strong>. I study how learning changes an agent’s reasoning and behavior, and how to make sequential decision-making safe and reliable.</p>
+                <p>My current work examines how tool-use reinforcement learning reshapes deliberation in thinking models, including the relationship between reasoning styles and tool-use reliability. I also develop methods for offline-to-online exploration, reinforcement learning with instantaneous safety constraints, and communication-efficient federated alignment. My research extends to deep reinforcement learning for covert routing.</p>
+                <p>In summer 2026, I was a Crash Avoidance Engineering Intern at the <strong>Transportation Research Center</strong>, where I worked on autonomous-driving safety with Autoware and investigated vision-language-action and world models. I received my B.S. and M.S. in Electrical and Computer Engineering from the <strong>University of Tehran</strong>. I expect to complete my Ph.D. in <strong>May 2028</strong>. <a href="cv.pdf" target="_blank" rel="noopener noreferrer">View my CV (PDF)</a>.</p>
             </div>
         </section>
 
-        <!-- NEWS / HIGHLIGHTS -->
-        <!-- Optional section, good for recent acceptances -->
         <section id="news">
-            <h2><i class="fas fa-bullhorn" style="font-size: 1rem; margin-right: 10px; color: #999;"></i>News</h2>
-            <ul style="list-style: none; font-size: 0.95rem;">
-                <li style="margin-bottom: 0.5rem;">
-                    <span style="font-weight: bold; color: var(--osu-scarlet);">2025:</span> Paper on Provably Efficient Safe RL accepted to <strong>ICML 2025</strong>!
-                </li>
-                <li style="margin-bottom: 0.5rem;">
-                    <span style="font-weight: bold; color: var(--osu-scarlet);">2025:</span> Invited paper accepted to <strong>IEEE MASS 2025</strong>.
-                </li>
-                <li style="margin-bottom: 0.5rem;">
-                    <span style="font-weight: bold; color: var(--osu-scarlet);">2025:</span> Oral Presenter at IEEE MASS.
-                </li>
+            <h2>News &amp; Highlights</h2>
+            <ul class="news-list">
+                <li><strong>2026:</strong> <em>Selective Forgetting in Tool-Augmented Language-Model Agents</em> accepted to the NeurIPS Workshop on Towards Test-Time Continual Learning Agents.</li>
+                <li><strong>2026:</strong> <em>Escaping Offline Pessimism</em> at the Reinforcement Learning Conference (RLC).</li>
+                <li><strong>2026:</strong> Recognized as a <strong>Top Reviewer at NeurIPS</strong>.</li>
+                <li><strong>Summer 2026:</strong> Crash Avoidance Engineering Intern at the Transportation Research Center (TRC).</li>
+                <li><strong>2025:</strong> Safe RL work at <strong>ICML</strong>, and an invited paper and oral presentation at <strong>IEEE MASS</strong>.</li>
             </ul>
         </section>
 
-        <!-- PUBLICATIONS -->
         <section id="publications">
-            <h2>Selected Publications</h2>
-
+            <h2>Publications</h2>
+            <div class="pub-item">
+                <span class="pub-title">Selective Forgetting in Tool-Augmented Language-Model Agents</span>
+                <div class="pub-authors"><strong>A. Roknilamouki</strong>, et al.</div>
+                <div class="pub-venue">NeurIPS 2026 Workshop on Towards Test-Time Continual Learning Agents. Accepted. </div>
+                <div class="pub-links"><a href="https://openreview.net/forum?id=LR42v6QEQr" target="_blank" rel="noopener noreferrer" aria-label="Paper: Selective Forgetting in Tool-Augmented Language-Model Agents">Paper</a></div>
+            </div>
+            <div class="pub-item">
+                <span class="pub-title">Escaping Offline Pessimism: Vector-Field Reward Shaping for Safe Frontier Exploration</span>
+                <div class="pub-authors"><strong>A. Roknilamouki</strong>, A. Ghosh, E. Ekici, and N. Shroff</div>
+                <div class="pub-venue">Reinforcement Learning Conference (RLC), 2026. </div>
+                <div class="pub-links"><a href="https://rlj.cs.umass.edu/2026/papers/Paper116.pdf" target="_blank" rel="noopener noreferrer" aria-label="Paper: Escaping Offline Pessimism: Vector-Field Reward Shaping for Safe Frontier Exploration">Paper</a></div>
+            </div>
             <div class="pub-item">
                 <span class="pub-title">Provably Efficient RL for Linear MDPs under Instantaneous Safety Constraints in Non-Convex Feature Spaces</span>
                 <div class="pub-authors"><strong>A. Roknilamouki</strong>, A. Ghosh, M. Shi, F. Nourzad, E. Ekici, and N. Shroff</div>
-                <div class="pub-venue">Proceedings of the 42nd International Conference on Machine Learning (ICML), 2025 <span class="tag top">Top Tier</span></div>
+                <div class="pub-venue">International Conference on Machine Learning (ICML), 2025. </div>
+                <div class="pub-links"><a href="https://openreview.net/pdf?id=rNswKjEVPa" target="_blank" rel="noopener noreferrer" aria-label="Paper: Provably Efficient RL for Linear MDPs under Instantaneous Safety Constraints in Non-Convex Feature Spaces">Paper</a></div>
             </div>
-
             <div class="pub-item">
                 <span class="pub-title">Safe and Reliable Deep Reinforcement Learning for Covert Routing</span>
                 <div class="pub-authors"><strong>A. Roknilamouki</strong>, F. T. Dagefu, N. B. Shroff, et al.</div>
-                <div class="pub-venue">IEEE International Conference on Mobile Ad-Hoc and Smart Systems (MASS), 2025 <span class="tag invited">Invited Paper</span></div>
+                <div class="pub-venue">IEEE International Conference on Mobile Ad-Hoc and Smart Systems (MASS), 2025. <span class="tag invited">Invited paper</span></div>
+                
             </div>
-
+        </section>
+        <section id="manuscripts">
+            <h2>Manuscripts Under Review</h2>
+            <div class="pub-item">
+                <span class="pub-title">Thinking Beyond Tools: How Tool-Use RL Reshapes Deliberation</span>
+                <div class="pub-authors"><strong>A. Roknilamouki</strong>, et al.</div>
+                <div class="pub-venue">Submitted to a top-tier AI conference, 2026. </div>
+                
+            </div>
             <div class="pub-item">
                 <span class="pub-title">FIRM: Federated In-client Regularized Multi-objective Alignment for Large Language Models</span>
                 <div class="pub-authors">F. Nourzad, <strong>A. Roknilamouki</strong>, E. Ekici, J. Liu, and N. Shroff</div>
-                <div class="pub-venue">Manuscript under review at a top-tier AI conference, 2025</div>
+                <div class="pub-venue">Under review at a top-tier AI conference, 2026. </div>
+                <div class="pub-links"><a href="https://arxiv.org/abs/2511.16992" target="_blank" rel="noopener noreferrer" aria-label="arXiv: FIRM: Federated In-client Regularized Multi-objective Alignment for Large Language Models">arXiv</a></div>
             </div>
         </section>
 
-        <!-- EDUCATION -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="institution">Crash Avoidance Engineering Intern</div>
+                    <div class="degree">Transportation Research Center (TRC) · East Liberty, OH</div>
+                    <ul class="desc-list">
+                        <li>Researched autonomous-driving safety using Autoware.</li>
+                        <li>Investigated vision-language-action (VLA) models and world models as learning-based approaches to safe and reliable autonomous driving.</li>
+                    </ul>
+                </div>
+                <div class="timeline-right">Jun.–Aug. 2026</div>
+            </div>
+
+            <h2>Research Experience</h2>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="institution">Graduate Research Assistant</div>
+                    <div class="degree">The Ohio State University · Columbus, OH</div>
+                    <ul class="desc-list">
+                        <li><strong>Tool-augmented LLM agents:</strong> Studied how tool-use RL reshapes reasoning in Qwen and Gemma thinking models through behavioral and representation-level analyses. Developed reasoning-replay and training-time interventions to examine deliberation styles and trade-offs with tool-use reliability.</li>
+                        <li><strong>Offline-to-online RL and safe exploration:</strong> Developed vector-field reward shaping that combines gradient-based attraction and rotational flow to sustain exploration along uncertainty boundaries, with theoretical analysis and validation using SAC and normalizing-flow policies.</li>
+                        <li><strong>Provably safe RL:</strong> Developed NCS-LSVI for linear MDPs with instantaneous hard constraints in non-star-convex feature spaces. Established sublinear regret with zero safety violations with high probability, and introduced Objective–Constraint Decomposition to address a gap in prior analysis.</li>
+                        <li><strong>Federated LLM alignment:</strong> Developed FIRM, a communication-efficient federated RLHF framework for multiple alignment objectives, using in-client regularization to mitigate client drift and establishing finite-time convergence guarantees.</li>
+                        <li><strong>Deep RL for covert routing:</strong> Developed a two-phase framework combining backpressure pre-training and conservative fine-tuning to address training instability, support throughput optimization, and stabilize queue dynamics.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="education">
             <h2>Education</h2>
-
             <div class="timeline-item">
                 <div class="timeline-left">
                     <div class="institution">The Ohio State University</div>
                     <div class="degree">Ph.D. in Electrical and Computer Engineering</div>
-                    <ul class="desc-list">
-                        <li><strong>Focus:</strong> Safe RL, Distributed LLM alignment, Pre-training & Safe fine-tuning.</li>
-                    </ul>
+                    <ul class="desc-list"><li>Expected graduation: <strong>May 2028</strong>.</li></ul>
                 </div>
-                <div class="timeline-right">Exp. May 2027</div>
+                <div class="timeline-right">2022–present</div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-left">
                     <div class="institution">University of Tehran</div>
                     <div class="degree">M.S. in Electrical and Computer Engineering</div>
                     <ul class="desc-list">
-                        <li><strong>Thesis:</strong> Autonomous Surface Vessel Control</li>
-                        <li>Ranked 1st in graduate class.</li>
+                        <li><strong>Thesis:</strong> Distributed control of autonomous surface vessels using Model Predictive Control (MPC).</li>
+                        <li>Ranked 1st in the Electrical Engineering graduate class.</li>
                     </ul>
                 </div>
-                <div class="timeline-right">2022</div>
+                <div class="timeline-right">2019–2022</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="institution">University of Tehran</div>
+                    <div class="degree">B.S. in Electrical and Computer Engineering</div>
+                </div>
+                <div class="timeline-right">2015–2019</div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section id="experience">
-            <h2>Research Experience</h2>
-
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <div class="institution">Graduate Research Assistant</div>
-                    <div class="degree">The Ohio State University</div>
-                    <ul class="desc-list">
-                        <li>Developed a novel safe reinforcement learning algorithm correcting foundational errors in prior theory (ICML 2025).</li>
-                        <li>Architected a distributed <strong>LLM Post-Training</strong> framework for multi-objective alignment (RLHF).</li>
-                        <li>Engineered a deep RL system for safe decision-making in high-stakes communication networks.</li>
-                    </ul>
-                </div>
-                <div class="timeline-right">Columbus, OH</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <div class="institution">Graduate Research Assistant</div>
-                    <div class="degree">University of Tehran</div>
-                    <ul class="desc-list">
-                        <li>Engineered an autonomous control system using Distributed Model Predictive Control (MPC).</li>
-                    </ul>
-                </div>
-                <div class="timeline-right">Tehran</div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
         <section id="skills">
             <h2>Skills</h2>
             <div class="skills-grid">
-                <div>
-                    <span class="skill-cat">Languages</span>
-                    <span class="skill-list">Python, C++, C, R, MATLAB</span>
-                </div>
-                <div>
-                    <span class="skill-cat">ML Frameworks</span>
-                    <span class="skill-list">PyTorch, TRL, Hugging Face, Scikit-Learn, NumPy</span>
-                </div>
-                <div>
-                    <span class="skill-cat">Models</span>
-                    <span class="skill-list">Llama, GPT-2, TinyLlama</span>
-                </div>
-                <div>
-                    <span class="skill-cat">Tools</span>
-                    <span class="skill-list">Git, Linux, SLURM, OSC Clusters, CUDA</span>
-                </div>
+                <div><span class="skill-cat">Languages</span><span class="skill-list">Python, C++, C, R, MATLAB</span></div>
+                <div><span class="skill-cat">ML / LLM Stack</span><span class="skill-list">JAX, PyTorch, Flax, Optax, TRL, Hugging Face, scikit-learn, NumPy, pandas</span></div>
+                <div><span class="skill-cat">Methods</span><span class="skill-list">Safe and deep RL; RLHF and LLM alignment; federated learning; imitation learning; pre-training</span></div>
+                <div><span class="skill-cat">Models &amp; Architectures</span><span class="skill-list">Diffusion transformers, sequence models, action chunking, Llama</span></div>
+                <div><span class="skill-cat">Systems &amp; Tools</span><span class="skill-list">Linux, SLURM, CUDA, Docker, Git, GitHub, Jupyter, Google Colab</span></div>
             </div>
         </section>
 
-        <footer style="margin-top: 4rem; border-top: 1px solid #eee; padding: 2rem 0; text-align: center; font-size: 0.8rem; color: #999;">
-            <p>&copy; 2025 Amirhossein Roknilamouki</p>
-        </footer>
+        <section id="service">
+            <h2>Academic Activities &amp; Service</h2>
+            <ul class="service-list">
+                <li><strong>Main Reviewer:</strong> NeurIPS 2026.</li>
+                <li><strong>Reviewer:</strong> IEEE MILCOM; AISTATS.</li>
+                <li><strong>Oral Presenter:</strong> IEEE MASS 2025.</li>
+                <li><strong>Poster Presenter:</strong> 8th US–Japan Digital Innovation Hub Workshop, 2024.</li>
+                <li><strong>Poster Presenter:</strong> AIMACCS Workshop, 2024.</li>
+                <li><strong>Teaching Assistant:</strong> University of Tehran. Courses: Machine Learning, Modern Control, Nonlinear Systems, and Linear Algebra.</li>
+            </ul>
+        </section>
 
+        <section id="honors">
+            <h2>Honors &amp; Awards</h2>
+            <ul class="honors-list">
+                <li><strong>Top Reviewer, NeurIPS 2026</strong> (2026).</li>
+                <li><strong>Ranked 1st</strong> in the Electrical Engineering graduate class, University of Tehran (2019–2022).</li>
+                <li>M.S. admission through the exceptional talent program, ECE, University of Tehran (2019).</li>
+                <li><strong>Ranked 11th of 129</strong> Electrical Engineering undergraduate students, University of Tehran (2018).</li>
+                <li><strong>Ranked 89th of 181,846 (top 0.05%)</strong> in the national B.S. entrance examination (2015).</li>
+            </ul>
+        </section>
+
+        <footer style="margin-top: 4rem; border-top: 1px solid #eee; padding: 2rem 0; text-align: center; font-size: 0.8rem; color: #666;">
+            <p>&copy; 2026 Amirhossein Roknilamouki</p>
+        </footer>
     </main>
 
 </body>
